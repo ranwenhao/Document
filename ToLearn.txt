@@ -2,5 +2,5 @@ Spring security
 ForkJoinPool
 Phasers
 lamda::
-http://www.allitebooks.com/
-https://smtebooks.com/
+config-client请求refresh，是否需要mq，还是直接从config-server拿
+
