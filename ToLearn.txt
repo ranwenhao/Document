@@ -2,3 +2,4 @@ Spring security
 ForkJoinPool
 stream collect reduce
 @version
+@Immutable
