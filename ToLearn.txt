@@ -3,3 +3,4 @@ ForkJoinPool
 stream collect reduce
 @version
 @Immutable
+异常由谁抛，由谁catch，谁来验证
