@@ -1,8 +1,7 @@
 Spring security
 ForkJoinPool
 stream collect reduce
-@version
-@Immutable
+Collectors
 异常由谁抛，由谁catch，谁来验证
 queryhint
 @Lock(LockModeType.PESSIMISTIC_READ)
