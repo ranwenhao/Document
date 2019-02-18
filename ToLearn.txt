@@ -9,52 +9,5 @@ rocketmq事务消息
 spark
 
 
-docker pull mariadb:10.4.1
-mkdir -p /usr/local/docker-volume/mysql/conf
-mkdir -p /usr/local/docker-volume/mysql/data
-mkdir -p /usr/local/docker-volume/mysql/logs
-
-docker cp jira-db:/etc/mysql/mariadb.cnf /usr/local/docker-volume/mysql/conf
-
-
-# MariaDB-specific config file.
-# Read by /etc/mysql/my.cnf
-
-[client]
-# Default is Latin1, if you need UTF-8 set this (also in server section)
-#default-character-set = utf8 
-
-[mysqld]
-#
-# * Character sets
-# 
-# Default is Latin1, if you need UTF-8 set all this (also in client section)
-#
-character-set-server = utf8
-collation-server = utf8_general_ci
-character_set_server = utf8
-collation_server = utf8_general_ci
-default-storage-engine = INNODB
-max_allowed_packet = 256M
-innodb_log_file_size = 256M
-
-docker run --name jira-db -p 3333:3306 -d -e MYSQL_ROOT_PASSWORD=jira_root \
--v /usr/local/docker-volume/mysql/conf:/etc/mysql/mariadb.conf.d:rw \
--v /usr/local/docker-volume/mysql/data:/var/lib/mysql:rw \
--v /usr/local/docker-volume/mysql/logs:/var/log/mysql:rw \
-mariadb:10.4.1
-
-
-
-
-CREATE DATABASE jira_core CHARACTER SET utf8 COLLATE utf8_bin
-CREATE USER 'jira_admin'@'%' IDENTIFIED BY 'jira_valve_arm';
-GRANT SELECT,INSERT,UPDATE,DELETE,CREATE,DROP,REFERENCES,ALTER,INDEX on jira_core.* TO 'jira_admin'@'%';
-flush privileges;
-
-
-
-https://confluence.atlassian.com/doc/installing-confluence-on-linux-143556824.html
-https://confluence.atlassian.com/adminjiraserver/installing-jira-applications-on-linux-938846841.html
-https://confluence.atlassian.com/adminjiraserver/connecting-jira-applications-to-mysql-938846854.html
-https://blog.csdn.net/u012312884/article/details/76796719/
+gradle多模块build
+systemProperty
